@@ -27,17 +27,13 @@ contract('EtherWallet', (accounts) => {
 
   it('Should transfer ether to another address', async () => {
     const balanceRecipientBefore = await web3.eth.getBalance(accounts[1]);
-
-    await etherWallet.send(accounts[1], 50, {
-      from: accountts[0],
-    });
+    await etherWallet.send(accounts[1], 50, { from: accounts[0] });
     const balanceWallet = await web3.eth.getBalance(etherWallet.address);
     assert(parseInt(balanceWallet) === 50);
-    // as result is very large we use .toBN()
     const balanceRecipientAfter = await web3.eth.getBalance(accounts[1]);
+    // as result is very large we use .toBN()
     const finalBalance = web3.utils.toBN(balanceRecipientAfter);
     const initialBalance = web3.utils.toBN(balanceRecipientBefore);
-
     assert(finalBalance.sub(initialBalance).toNumber() === 50);
   });
 

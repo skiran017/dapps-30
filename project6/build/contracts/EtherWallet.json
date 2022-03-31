@@ -2,22 +2,9 @@
   "contractName": "EtherWallet",
   "abi": [
     {
-      "constant": true,
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
+          "internalType": "address",
           "name": "_owner",
           "type": "address"
         }
@@ -25,6 +12,21 @@
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "constant": false,
@@ -39,10 +41,12 @@
       "constant": false,
       "inputs": [
         {
+          "internalType": "address payable",
           "name": "to",
           "type": "address"
         },
         {
+          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -59,6 +63,7 @@
       "name": "balanceOf",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -68,11 +73,11 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"to\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"send\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/EtherWallet.sol\":\"EtherWallet\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/EtherWallet.sol\":{\"keccak256\":\"0x0d3a19bd18a36827fe838cff24ae184a24b6d540c2a3969118cc6cd6d0c6fe19\",\"urls\":[\"bzzr://8ccba714501aa123ed50c6005385840b59c1a0fd8845192a8910e69b79a2459f\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506040516020806103648339810180604052602081101561003057600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506102d3806100916000396000f3fe608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063722713f7146100675780638da5cb5b14610092578063d0679d34146100e9578063d0e30db014610144575b600080fd5b34801561007357600080fd5b5061007c61014e565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a761016d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f557600080fd5b506101426004803603604081101561010c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610192565b005b61014c6102a5565b005b60003073ffffffffffffffffffffffffffffffffffffffff1631905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610233578173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561022d573d6000803e3d6000fd5b506102a1565b6040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260158152602001807f73656e646572206973206e6f7420616c6c6f776564000000000000000000000081525060200191505060405180910390fd5b5050565b56fea165627a7a7230582027d2b5234114fe10766ff2900722e3f246c9ddb9dfd64a6e2dbd3b694cfd1ab00029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063722713f7146100675780638da5cb5b14610092578063d0679d34146100e9578063d0e30db014610144575b600080fd5b34801561007357600080fd5b5061007c61014e565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a761016d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f557600080fd5b506101426004803603604081101561010c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610192565b005b61014c6102a5565b005b60003073ffffffffffffffffffffffffffffffffffffffff1631905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610233578173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561022d573d6000803e3d6000fd5b506102a1565b6040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260158152602001807f73656e646572206973206e6f7420616c6c6f776564000000000000000000000081525060200191505060405180910390fd5b5050565b56fea165627a7a7230582027d2b5234114fe10766ff2900722e3f246c9ddb9dfd64a6e2dbd3b694cfd1ab00029",
-  "sourceMap": "60:606:0:-;;;117:68;8:9:-1;5:2;;;30:1;27;20:12;5:2;117:68:0;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;117:68:0;;;;;;;;;;;;;;;;171:6;163:5;;:14;;;;;;;;;;;;;;;;;;117:68;60:606;;;;;;",
-  "deployedSourceMap": "60:606:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;565:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;565:98:0;;;;;;;;;;;;;;;;;;;;;;;88:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;88:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;348:209;;8:9:-1;5:2;;;30:1;27;20:12;5:2;348:209:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;348:209:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;253:36;;;;;;565:98;607:7;642:4;634:21;;;627:28;;565:98;:::o;88:20::-;;;;;;;;;;;;;:::o;348:209::-;434:5;;;;;;;;;;;420:19;;:10;:19;;;416:92;;;456:2;:11;;:19;468:6;456:19;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;456:19:0;490:7;;416:92;518:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;348:209;;;:::o;253:36::-;:::o",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"send\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/EtherWallet.sol\":\"EtherWallet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/EtherWallet.sol\":{\"keccak256\":\"0x0d3a19bd18a36827fe838cff24ae184a24b6d540c2a3969118cc6cd6d0c6fe19\",\"urls\":[\"bzz-raw://b61d7a9766b884b280cc14eaadd308bdee840b0b331909b1caf521a50029d267\",\"dweb:/ipfs/QmPBRPX98UP61JRUd1k89zk1dpamHAdwXSKrFXYwVdycKU\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103363803806103368339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506102a2806100946000396000f3fe60806040526004361061003f5760003560e01c8063722713f7146100445780638da5cb5b1461006f578063d0679d34146100c6578063d0e30db014610121575b600080fd5b34801561005057600080fd5b5061005961012b565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b50610084610133565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100d257600080fd5b5061011f600480360360408110156100e957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610158565b005b61012961026b565b005b600047905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101f9578173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f193505050501580156101f3573d6000803e3d6000fd5b50610267565b6040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260158152602001807f73656e646572206973206e6f7420616c6c6f776564000000000000000000000081525060200191505060405180910390fd5b5050565b56fea265627a7a72315820a197650d287238541d3de5d34a0fc79188727f1ec9f45ab846a7252a6a04e8db64736f6c63430005100032",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c8063722713f7146100445780638da5cb5b1461006f578063d0679d34146100c6578063d0e30db014610121575b600080fd5b34801561005057600080fd5b5061005961012b565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b50610084610133565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100d257600080fd5b5061011f600480360360408110156100e957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610158565b005b61012961026b565b005b600047905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101f9578173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f193505050501580156101f3573d6000803e3d6000fd5b50610267565b6040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260158152602001807f73656e646572206973206e6f7420616c6c6f776564000000000000000000000081525060200191505060405180910390fd5b5050565b56fea265627a7a72315820a197650d287238541d3de5d34a0fc79188727f1ec9f45ab846a7252a6a04e8db64736f6c63430005100032",
+  "sourceMap": "60:606:0:-;;;117:68;8:9:-1;5:2;;;30:1;27;20:12;5:2;117:68:0;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;117:68:0;;;;;;;;;;;;;;;;171:6;163:5;;:14;;;;;;;;;;;;;;;;;;117:68;60:606;;;;;;",
+  "deployedSourceMap": "60:606:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;565:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;565:98:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;88:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;88:20:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;348:209;;8:9:-1;5:2;;;30:1;27;20:12;5:2;348:209:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;348:209:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;253:36;;;:::i;:::-;;565:98;607:7;634:21;627:28;;565:98;:::o;88:20::-;;;;;;;;;;;;;:::o;348:209::-;434:5;;;;;;;;;;;420:19;;:10;:19;;;416:92;;;456:2;:11;;:19;468:6;456:19;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;456:19:0;490:7;;416:92;518:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;348:209;;;:::o;253:36::-;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.5.0;\r\n\r\ncontract EtherWallet {\r\n    address public owner;\r\n\r\n    constructor(address _owner) public {\r\n        owner = _owner;\r\n    }\r\n\r\n    //to receive ether to this function it must be PAYABLE\r\n    function deposit() public payable {}\r\n\r\n    //payable address to access transfer function\r\n    function send(address payable to, uint256 amount) public {\r\n        if (msg.sender == owner) {\r\n            to.transfer(amount);\r\n            return;\r\n        }\r\n        revert(\"sender is not allowed\");\r\n    }\r\n\r\n    function balanceOf() public view returns (uint256) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n",
   "sourcePath": "D:\\Github\\d-app-30\\project6\\contracts\\EtherWallet.sol",
   "ast": {
@@ -593,7 +598,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 115,
+                          "referencedDeclaration": 116,
                           "src": "642:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_EtherWallet_$54",
@@ -1411,7 +1416,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 115,
+                                  "referencedDeclaration": 116,
                                   "type": "contract EtherWallet",
                                   "value": "this"
                                 },
@@ -1456,11 +1461,19 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xfebD1e2CDB3Ce30f02c3dBC26130a3c6631A8839",
+      "transactionHash": "0x415199e259a88b15626699f920a5076fa19bedffe531692198661c90964924f0"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-03-31T12:07:38.443Z",
+  "updatedAt": "2022-03-31T13:10:51.971Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

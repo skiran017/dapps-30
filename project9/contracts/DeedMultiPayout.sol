@@ -7,8 +7,8 @@ contract DeedMultiPayout {
     uint256 public amount; //in WEI
 
     //helps to save gas by storing variable in code rather than in storage of blockchain; this cannot be modified later
-    uint256 public constant PAYOUTS = 4;
-    uint256 public constant INTERVAL = 1; //time between each payout in seconds (unit by default)
+    uint256 public constant PAYOUTS = 10;
+    uint256 public constant INTERVAL = 10; //time between each payout in seconds (unit by default)
     uint256 public paidPayouts;
 
     constructor(
@@ -23,11 +23,11 @@ contract DeedMultiPayout {
     }
 
     function withdraw() public {
-        require(msg.sender == lawyer, "lawyer only");
+        require(msg.sender == beneficiary, "beneficiary only");
         require(now >= earliest, "too early");
         require(paidPayouts < PAYOUTS, "no payouts left");
 
-        uint256 eligiblePayouts = 1 + (now - earliest) / INTERVAL;
+        uint256 eligiblePayouts = (now - earliest) / INTERVAL;
         uint256 duePayouts = eligiblePayouts - paidPayouts;
         duePayouts = duePayouts + paidPayouts > PAYOUTS
             ? PAYOUTS - paidPayouts

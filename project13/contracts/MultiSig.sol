@@ -14,8 +14,8 @@ contract MultiSig {
 
     //made it to public to test it
     mapping(uint256 => Transfer) public transfers;
-    uint256 nextId;
-    mapping(address => mapping(uint256 => bool)) approvals;
+    uint256 public nextId;
+    mapping(address => mapping(uint256 => bool)) public approvals;
 
     constructor(address[] memory _approvers, uint256 _quorum) public payable {
         approvers = _approvers;

@@ -15,10 +15,10 @@ contract Voting {
         uint256 end; //time stamp in seconds
     }
 
-    mapping(uint256 => Ballot) ballots;
+    mapping(uint256 => Ballot) public ballots;
     uint256 nextBallotId;
     address public admin;
-    mapping(address => mapping(uint256 => bool)) votes;
+    mapping(address => mapping(uint256 => bool)) public votes;
 
     constructor() public {
         admin = msg.sender;
@@ -43,6 +43,47 @@ contract Voting {
         }
         nextBallotId++;
     }
+
+    function vote(uint256 ballotId, uint256 choiceId) external {
+        require(voters[msg.sender] == true, "only voters can vote");
+        require(
+            votes[msg.sender][ballotId] == false,
+            "voter can only vote once for a ballot"
+        );
+        require(
+            now < ballots[ballotId].end,
+            "can only vote until ballot end date"
+        );
+        votes[msg.sender][ballotId] = true;
+        ballots[ballotId].choices[choiceId].votes++;
+    }
+
+    //If `pragma experimental ABIEncoderV2`
+    function results(uint256 ballotId) external view returns (Choice[] memory) {
+        require(
+            now >= ballots[ballotId].end,
+            "cannot see the ballot result before ballot end"
+        );
+        return ballots[ballotId].choices;
+    }
+
+    //If no `pragma experimental ABIEncoderV2`
+    //function results(uint ballotId)
+    //  view
+    //  external
+    //  returns(uint[] memory, string[] memory, uint[]memory) {
+    //  require(now >= ballots[ballotId].end, 'can only see result after ballot end');
+    //  Choice[] storage choices = ballots[ballotId].choices;
+    //  uint[] memory ids = new uint[](choices.length);
+    //  string[] memory names = new string[](choices.length);
+    //  uint[] memory votes = new uint[](choices.length);
+    //  for(uint i = 0; i < choices.length; i++) {
+    //    ids[i] = choices[i].id;
+    //    names[i] = choices[i].name;
+    //    votes[i] = choices[i].votes;
+    //  }
+    //  return(ids, names, votes);
+    //}
 
     modifier onlyAdmin() {
         require(msg.sender == admin, "only admin");

@@ -16,12 +16,16 @@ contract Voting {
     }
 
     mapping(uint256 => Ballot) public ballots;
-    uint256 nextBallotId;
+    uint256 public nextBallotId;
     address public admin;
     mapping(address => mapping(uint256 => bool)) public votes;
 
     constructor() public {
         admin = msg.sender;
+    }
+
+    function getBallot(uint256 id) external view returns (Ballot memory) {
+        return ballots[id];
     }
 
     function addVoters(address[] calldata _voters) external onlyAdmin {

@@ -1,5 +1,14 @@
 pragma solidity ^0.5.2;
 
+/**
+ * DAO contract:
+ * 1. Collects investors money (ether) & allocate shares
+ * 2. Keep track of investor contributions with shares
+ * 3. Allow investors to transfer shares
+ * 4. allow investment proposals to be created and voted
+ * 5. execute successful investment proposals (i.e send money)
+ */
+
 contract DAO {
     struct Proposal {
         uint256 id;
@@ -119,6 +128,7 @@ contract DAO {
         _transferEther(amount, to);
     }
 
+    //For ether returns of proposal investments
     function() external payable {
         availableFunds += msg.value;
     }

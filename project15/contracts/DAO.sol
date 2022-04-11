@@ -23,8 +23,19 @@ contract DAO {
     uint256 public quorum;
     address public admin;
 
-    constructor(uint256 contributionTime) public {
+    constructor(
+        uint256 contributionTime,
+        uint256 _voteTime,
+        uint256 _quorum
+    ) public {
+        require(
+            _quorum > 0 && _quorum < 100,
+            "quorum must be between 0 and 100"
+        );
         contributionEnd = now + contributionTime;
+        voteTime = _voteTime;
+        quorum = _quorum;
+        admin = msg.sender;
     }
 
     function contribute() external payable {
@@ -76,7 +87,7 @@ contract DAO {
         Proposal storage proposal = proposals[proposalId];
         require(
             votes[msg.sender][proposalId] == false,
-            "investore can only vote once for a proposal"
+            "investor can only vote once for a proposal"
         );
         require(now < proposal.end, "can only vote until proposal end");
         votes[msg.sender][proposalId] = true;
@@ -94,9 +105,10 @@ contract DAO {
             "cannot execute a proposal already executed"
         );
         require(
-            (proposal.votes / totalShares) * 100 >= quorum,
-            "cannot execute a proposal with votes below quorum"
+            (proposal.votes * 100) / totalShares >= quorum,
+            "cannot execute proposal with votes # below quorum"
         );
+        proposal.executed = true;
         _transferEther(proposal.amount, proposal.recipient);
     }
 
